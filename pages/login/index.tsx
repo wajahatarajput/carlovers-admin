@@ -36,7 +36,7 @@ export default function Login() {
     };
 
     return (
-        <div className="w-100 vh-100 bg-light">
+        <div className="w-100 vh-100 bg-light bg-main text-light">
             <div className="row d-flex justify-content-center align-items-center w-100">
                 <div className="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
                     <div className={`${styles.glassmorphismcontainer} w-100`}>
@@ -51,10 +51,10 @@ export default function Login() {
                                     <label htmlFor="password" className="form-label">Password</label>
                                     <input type="password" className="form-control" id="password" {...register('password')} />
                                 </div>
-                                <Link href='/register' className="forgot-password text-decoration-none btn btn-outline-dark border-0 border">Forgot Password?</Link>
-                                <input type="submit" className="btn btn-outline-dark w-100 mt-3" value="Login" />
+                                <Link href='/register' className="forgot-password text-decoration-none btn btn-outline-light border-0 border">Forgot Password?</Link>
+                                <input type="submit" className="btn btn-outline-light w-100 mt-3" value="Login" />
                                 <hr />
-                                <button type="button" onClick={() => setIsLogin(false)} className="btn btn-outline-dark border border-0 mt-3">Don't have an account? Signup</button>
+                                <button type="button" onClick={() => setIsLogin(false)} className="btn btn-outline-light border border-0 mt-3">Don't have an account? Signup</button>
                             </form>
                         ) : (
                             <form onSubmit={handleSubmit(onSubmitSignup)}>
@@ -67,20 +67,20 @@ export default function Login() {
                                     <label htmlFor="password" className="form-label">Password</label>
                                     <input type="password" className="form-control" id="password" {...register('password')} />
                                 </div>
-                                <input type="submit" className="btn btn-outline-dark w-100 mt-3" value="Signup" />
+                                <input type="submit" className="btn btn-outline-light w-100 mt-3" value="Signup" />
                                 <hr />
-                                <button type="button" onClick={() => setIsLogin(true)} className="btn btn-outline-dark border border-0 mt-3">Already have an account? Login</button>
+                                <button type="button" onClick={() => setIsLogin(true)} className="btn btn-outline-light border border-0 mt-3">Already have an account? Login</button>
                             </form>
                         )}
                         <hr />
                         <div className="d-flex justify-content-center">
-                            <button className="btn btn-outline-dark mx-1">
+                            <button className="btn btn-outline-light mx-1">
                                 <i className="bi bi-facebook"></i> Facebook
                             </button>
-                            <button className="btn btn-outline-dark mx-1">
+                            <button className="btn btn-outline-light mx-1">
                                 <i className="bi bi-twitter"></i> Twitter
                             </button>
-                            <button className="btn btn-outline-dark mx-1">
+                            <button className="btn btn-outline-light mx-1">
                                 <i className="bi bi-google"></i> Twitter
                             </button>
                         </div>

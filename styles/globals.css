@@ -59,6 +59,11 @@ form {
   width: 100%;
 }
 
+.bg-main {
+  background: url('/assets/images/background.svg');
+}
+
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
