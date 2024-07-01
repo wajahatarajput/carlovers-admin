@@ -1,9 +1,8 @@
 // pages/products.js
-import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { AuthGuard } from '@/components'; // Adjust as per your project structure
 import { Layout } from '@/layout'; // Adjust as per your project structure
-import { createProduct, deleteProduct, fetchProducts, updateProduct } from './methods';
+import { createProduct, deleteProduct, fetchProducts, updateProduct } from '@/methods';
 
 const ProductsPage = () => {
     const [products, setProducts] = useState([]);
