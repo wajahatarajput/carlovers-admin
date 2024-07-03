@@ -4,13 +4,26 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import { useAuth } from '@/providers';
 import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserShield, faUserTie, faCar, faWrench } from '@fortawesome/free-solid-svg-icons';
 import styles from './style.module.css';
 
 interface AuthFormInputs {
     email: string;
     password: string;
-    username?: string;
-    phoneNumber?: string;
+    confirmPassword?: string;
+    firstName?: string;
+    lastName?: string;
+    dob?: string;
+    profilePicture?: File;
+    addressLine1?: string;
+    addressLine2?: string;
+    city?: string;
+    state?: string;
+    country?: string;
+    zipcode?: string;
+    phone?: string;
+    role?: string;
 }
 
 export default function Login() {
@@ -31,7 +44,8 @@ export default function Login() {
 
     const onSubmitSignup: SubmitHandler<AuthFormInputs> = useCallback(async (data) => {
         try {
-            await signup(data.email, data.password);
+            // Handle profile picture upload separately if necessary
+            // await signup(data.email, data.password, ...); 
             router.push('/welcome');
         } catch (error) {
             console.error(error);
@@ -43,7 +57,7 @@ export default function Login() {
     }, []);
 
     const prevStep = useCallback(() => {
-        setStep(step => step + 1);
+        setStep(step => step - 1);
     }, []);
 
     return (
@@ -73,6 +87,26 @@ export default function Login() {
                                 {step === 1 && (
                                     <>
                                         <div className="mb-3 form-group">
+                                            <label htmlFor="firstName" className="form-label">First Name</label>
+                                            <input type="text" className="form-control" id="firstName" {...register('firstName')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="lastName" className="form-label">Last Name</label>
+                                            <input type="text" className="form-control" id="lastName" {...register('lastName')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="dob" className="form-label">Date of Birth</label>
+                                            <input type="date" className="form-control" id="dob" {...register('dob')} />
+                                        </div>
+                                        <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
+                                            <button type="button" onClick={prevStep} className="btn btn-secondary mt-3">Previous</button>
+                                            <button type="button" onClick={nextStep} className="btn btn-purple mt-3">Next</button>
+                                        </div>
+                                    </>
+                                )}
+                                {step === 2 && (
+                                    <>
+                                        <div className="mb-3 form-group">
                                             <label htmlFor="email" className="form-label">Email address</label>
                                             <input type="email" className="form-control" id="email" {...register('email')} />
                                         </div>
@@ -80,22 +114,94 @@ export default function Login() {
                                             <label htmlFor="password" className="form-label">Password</label>
                                             <input type="password" className="form-control" id="password" {...register('password')} />
                                         </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
+                                            <input type="password" className="form-control" id="confirmPassword" {...register('confirmPassword')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="profilePicture" className="form-label">Profile Picture</label>
+                                            <input type="file" className="form-control" id="profilePicture" {...register('profilePicture')} />
+                                        </div>
                                         <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
                                             <button type="button" onClick={prevStep} className="btn btn-secondary mt-3">Previous</button>
                                             <button type="button" onClick={nextStep} className="btn btn-purple mt-3">Next</button>
                                         </div>
-
                                     </>
                                 )}
-                                {step === 2 && (
+                                {step === 3 && (
                                     <>
                                         <div className="mb-3 form-group">
-                                            <label htmlFor="username" className="form-label">Username</label>
-                                            <input type="text" className="form-control" id="username" {...register('username')} />
+                                            <label htmlFor="addressLine1" className="form-label">Address Line 1</label>
+                                            <input type="text" className="form-control" id="addressLine1" {...register('addressLine1')} />
                                         </div>
                                         <div className="mb-3 form-group">
-                                            <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
-                                            <input type="text" className="form-control" id="phoneNumber" {...register('phoneNumber')} />
+                                            <label htmlFor="addressLine2" className="form-label">Address Line 2</label>
+                                            <input type="text" className="form-control" id="addressLine2" {...register('addressLine2')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="city" className="form-label">City</label>
+                                            <input type="text" className="form-control" id="city" {...register('city')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="state" className="form-label">State</label>
+                                            <input type="text" className="form-control" id="state" {...register('state')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="country" className="form-label">Country</label>
+                                            <input type="text" className="form-control" id="country" {...register('country')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="zipcode" className="form-label">Zipcode</label>
+                                            <input type="text" className="form-control" id="zipcode" {...register('zipcode')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="phone" className="form-label">Phone</label>
+                                            <input type="text" className="form-control" id="phone" {...register('phone')} />
+                                        </div>
+                                        <div className="mb-3 form-group">
+                                            <label htmlFor="location" className="form-label">Location</label>
+                                            <button type="button" className="btn btn-primary" id="location">Use Current Location</button>
+                                        </div>
+                                        <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
+                                            <button type="button" onClick={prevStep} className="btn btn-secondary mt-3">Previous</button>
+                                            <button type="button" onClick={nextStep} className="btn btn-purple mt-3">Next</button>
+                                        </div>
+                                    </>
+                                )}
+                                {step === 4 && (
+                                    <>
+                                        <div className="mb-3 form-group">
+                                            <label className="form-label">Select Role</label>
+                                            <div className="d-flex justify-content-around">
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" id="admin" value="admin" {...register('role')} />
+                                                    <label className="form-check-label" htmlFor="admin">
+                                                        <FontAwesomeIcon icon={faUserShield} size="2x" />
+                                                        <div>Admin</div>
+                                                    </label>
+                                                </div>
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" id="owner" value="owner" {...register('role')} />
+                                                    <label className="form-check-label" htmlFor="owner">
+                                                        <FontAwesomeIcon icon={faUserTie} size="2x" />
+                                                        <div>Owner</div>
+                                                    </label>
+                                                </div>
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" id="driver" value="driver" {...register('role')} />
+                                                    <label className="form-check-label" htmlFor="driver">
+                                                        <FontAwesomeIcon icon={faCar} size="2x" />
+                                                        <div>Driver</div>
+                                                    </label>
+                                                </div>
+                                                <div className="form-check form-check-inline">
+                                                    <input className="form-check-input" type="radio" id="workshop" value="workshop" {...register('role')} />
+                                                    <label className="form-check-label" htmlFor="workshop">
+                                                        <FontAwesomeIcon icon={faWrench} size="2x" />
+                                                        <div>Workshop</div>
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
                                             <button type="button" onClick={prevStep} className="btn btn-secondary mt-3">Previous</button>
