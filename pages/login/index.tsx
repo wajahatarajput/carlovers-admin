@@ -52,12 +52,15 @@ export default function Login() {
         }
     }, []);
 
+    console.log(step)
+
     const nextStep = useCallback(() => {
         setStep(step => step + 1);
     }, []);
 
     const prevStep = useCallback(() => {
-        setStep(step => step - 1);
+        if (step >= 1)
+            setStep(step => step - 1);
     }, []);
 
     return (
@@ -98,8 +101,7 @@ export default function Login() {
                                             <label htmlFor="dob" className="form-label">Date of Birth</label>
                                             <input type="date" className="form-control" id="dob" {...register('dob')} />
                                         </div>
-                                        <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
-                                            <button type="button" onClick={prevStep} className="btn btn-secondary mt-3">Previous</button>
+                                        <div className='btnGroup d-block d-md-flex justify-content-end align-items-center'>
                                             <button type="button" onClick={nextStep} className="btn btn-purple mt-3">Next</button>
                                         </div>
                                     </>
