@@ -63,7 +63,7 @@ export default function Login() {
     return (
         <div className="w-100 vh-100 bg-light bg-main text-light">
             <div className="row d-flex justify-content-center align-items-center w-100">
-                <div className="col-md-4 col-sm-12 d-flex justify-content-center align-items-center">
+                <div className="col-xl-6 col-lg-8 col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
                     <div className={`${styles.glassmorphismcontainer} w-100`}>
                         {isLogin ? (
                             <form onSubmit={handleSubmit(onSubmitLogin)}>
@@ -172,7 +172,7 @@ export default function Login() {
                                     <>
                                         <div className="mb-3 form-group">
                                             <label className="form-label">Select Role</label>
-                                            <div className="d-flex justify-content-around">
+                                            <div className="d-md-flex d-block justify-content-around">
                                                 <div className="form-check form-check-inline">
                                                     <input className="form-check-input" type="radio" id="admin" value="admin" {...register('role')} />
                                                     <label className="form-check-label" htmlFor="admin">
@@ -214,14 +214,14 @@ export default function Login() {
                             </form>
                         )}
                         <hr />
-                        <div className="d-flex justify-content-center">
-                            <button className="btn btn-outline-light mx-1">
+                        <div className="">
+                            <button className="btn btn-outline-light mx-1 my-1 w-100">
                                 <i className="bi bi-facebook"></i> Facebook
                             </button>
-                            <button className="btn btn-outline-light mx-1">
+                            <button className="btn btn-outline-light mx-1 my-1 w-100">
                                 <i className="bi bi-twitter"></i> Twitter
                             </button>
-                            <button className="btn btn-outline-light mx-1">
+                            <button className="btn btn-outline-light mx-1 my-1 w-100">
                                 <i className="bi bi-google"></i> Google
                             </button>
                         </div>
