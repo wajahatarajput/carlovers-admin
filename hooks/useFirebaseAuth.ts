@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'fire
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react'
 import { auth } from '@/lib';
+import { toast } from 'react-toastify';
 
 export const useFirebaseAuth = () => {
     const router = useRouter();
@@ -13,7 +14,10 @@ export const useFirebaseAuth = () => {
     }, []);
 
     const register = useCallback(async (email: string, password: string) => {
-        await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password).then(() => {
+            toast.success("Signup SuccessFull");
+            router.push('/profile');
+        });
     }, []);
 
     const logout = useCallback(async () => {
