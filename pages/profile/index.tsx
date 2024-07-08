@@ -137,28 +137,28 @@ export default function ManageProfile() {
                                         <div className="d-md-flex d-block justify-content-around">
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="admin" value="admin" {...register('role')} />
-                                                <label className="form-check-label" htmlFor="admin">
+                                                <label className="form-check-label text-center" htmlFor="admin">
                                                     <FontAwesomeIcon icon={faUserShield} size="2x" />
                                                     <div>Admin</div>
                                                 </label>
                                             </div>
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="owner" value="owner" {...register('role')} />
-                                                <label className="form-check-label" htmlFor="owner">
+                                                <label className="form-check-label text-center" htmlFor="owner">
                                                     <FontAwesomeIcon icon={faUserTie} size="2x" />
                                                     <div>Owner</div>
                                                 </label>
                                             </div>
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="driver" value="driver" {...register('role')} />
-                                                <label className="form-check-label" htmlFor="driver">
+                                                <label className="form-check-label text-center" htmlFor="driver">
                                                     <FontAwesomeIcon icon={faCar} size="2x" />
                                                     <div>Driver</div>
                                                 </label>
                                             </div>
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="workshop" value="workshop" {...register('role')} />
-                                                <label className="form-check-label" htmlFor="workshop">
+                                                <label className="form-check-label text-center" htmlFor="workshop">
                                                     <FontAwesomeIcon icon={faWrench} size="2x" />
                                                     <div>Workshop</div>
                                                 </label>
