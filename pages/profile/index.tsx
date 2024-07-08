@@ -98,31 +98,31 @@ export default function ManageProfile() {
                             {step === 3 && (
                                 <>
                                     <div className="mb-3 form-group">
-                                        <label htmlFor="addressLine1" className="form-label">Address Line 1</label>
-                                        <input type="text" className="form-control" id="addressLine1" {...register('addressLine1')} />
+                                        {/* <label htmlFor="addressLine1" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="addressLine1" placeholder='Address Line 1' {...register('addressLine1')} />
                                     </div>
                                     <div className="mb-3 form-group">
-                                        <label htmlFor="addressLine2" className="form-label">Address Line 2</label>
-                                        <input type="text" className="form-control" id="addressLine2" {...register('addressLine2')} />
+                                        {/* <label htmlFor="addressLine2" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="addressLine2" placeholder='Address Line 2' {...register('addressLine2')} />
                                     </div>
                                     <div className="mb-3 form-group d-sm-flex d-block gap-4 align-items-center">
-                                        <label htmlFor="city" className="form-label">City</label>
-                                        <input type="text" className="form-control" id="city" {...register('city')} />
+                                        {/* <label htmlFor="city" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="city" placeholder='City' {...register('city')} />
 
-                                        <label htmlFor="state" className="form-label">State</label>
-                                        <input type="text" className="form-control" id="state" {...register('state')} />
+                                        {/* <label htmlFor="state" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="state" placeholder='State' {...register('state')} />
 
 
-                                        <label htmlFor="zipcode" className="form-label">Zipcode</label>
-                                        <input type="text" className="form-control" id="zipcode" {...register('zipcode')} />
+                                        {/* <label htmlFor="zipcode" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="zipcode" placeholder='Zipcode' {...register('zipcode')} />
                                     </div>
                                     <div className="mb-3 form-group">
-                                        <label htmlFor="country" className="form-label">Country</label>
-                                        <input type="text" className="form-control" id="country" {...register('country')} />
+                                        {/* <label htmlFor="country" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="country" placeholder='Country' {...register('country')} />
                                     </div>
                                     <div className="mb-3 form-group">
-                                        <label htmlFor="phone" className="form-label">Phone</label>
-                                        <input type="text" className="form-control" id="phone" {...register('phone')} />
+                                        {/* <label htmlFor="phone" className="form-label"></label> */}
+                                        <input type="text" className="form-control" id="phone" placeholder='Phone' {...register('phone')} />
                                     </div>
                                     <div className='btnGroup d-block d-md-flex justify-content-between align-items-center'>
                                         <button type="button" onClick={prevStep} className="btn btn-secondary mt-3 w-25 mx-5">Previous</button>
