@@ -135,13 +135,7 @@ export default function ManageProfile() {
                                     <div className="mb-3 form-group">
                                         <label className="form-label">Select Role</label>
                                         <div className="d-md-flex d-block justify-content-around">
-                                            <div className="form-check form-check-inline">
-                                                <input className="form-check-input" type="radio" id="admin" value="admin" {...register('role')} />
-                                                <label className="form-check-label text-center" htmlFor="admin">
-                                                    <FontAwesomeIcon icon={faUserShield} size="2x" />
-                                                    <div>Admin</div>
-                                                </label>
-                                            </div>
+                                            
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="owner" value="owner" {...register('role')} />
                                                 <label className="form-check-label text-center" htmlFor="owner">
