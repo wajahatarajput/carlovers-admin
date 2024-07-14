@@ -48,7 +48,10 @@ const WORKSHOP_ROUTES: Route[] = [
 
 export let ROUTES: Route[] = [];
 
-switch (localStorage.getItem('role')) {
+const role = typeof window !== 'undefined' ? window.localStorage.getItem('role') : 'guest';
+
+
+switch (role) {
     case 'admin':
         ROUTES = ADMIN_ROUTES;
         break;
