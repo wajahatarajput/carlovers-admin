@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const profileData = docSnap.data();
-            console.log(profileData)
             if (profileData)
                 localStorage.setItem('role', profileData?.role)
             setAbility(defineAbilityFor({ role: profileData.role }));

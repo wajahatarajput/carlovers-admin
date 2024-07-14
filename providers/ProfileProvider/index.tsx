@@ -32,7 +32,6 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
         try {
 
             if (docSnap.exists()) {
-                console.log(docSnap.data())
                 setProfile(docSnap.data() as UserProfileInputs);
             } else {
                 setProfile(null);
@@ -80,7 +79,6 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         if (user) {
-            console.log('fetching')
             fetchProfile();
         }
     }, [user, fetchProfile]);

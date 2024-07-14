@@ -37,7 +37,6 @@ export default function ServicesPage() {
             .then((data) => setSubscriptions(data.data));
     }, []);
 
-    console.log(subscriptions)
 
     const fetchServices = async () => {
         const querySnapshot = await getDocs(collection(db, 'services'));
