@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { toast } from 'react-toastify';
 import { useAuth } from '@/providers';
-import { db, doc, getDoc, getDownloadURL, ref, setDoc, storage, uploadBytes } from '@/lib';
+import { auth, db, doc, getDoc, getDownloadURL, ref, setDoc, storage, uploadBytes } from '@/lib';
 import { UserProfileInputs } from '@/types';
 import { useRouter } from 'next/router';
 
@@ -16,7 +16,8 @@ export interface UserProfileContextProps {
 const UserProfileContext = createContext<UserProfileContextProps | undefined>(undefined);
 
 export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
-    const { user } = useAuth();
+    const { user = auth.currentUser } = useAuth();
+
     const [profile, setProfile] = useState<UserProfileInputs | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -54,22 +55,21 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const updateProfile = useCallback(async (data: UserProfileInputs) => {
-        if (!user) return;
+        if (!auth.currentUser) return;
         setLoading(true);
         setError(null);
         try {
-            if (data.profilePicture && typeof data.profilePicture !== 'string') {
-                const profilePicRef = ref(storage, `profiles/${user.uid}/profilePicture`);
+            if (data.profilePicture) {
+                const profilePicRef = ref(storage, `profiles/${auth.currentUser.uid}/profilePicture`);
                 await uploadBytes(profilePicRef, data.profilePicture as File);
                 const profilePicUrl = await getDownloadURL(profilePicRef);
                 data.profilePicture = profilePicUrl;
             }
             const filteredData = cleanData(data);
-            const docRef = doc(db, 'users', user.uid, 'profile', user.uid);
-            await setDoc(docRef, filteredData, { merge: true });
+            const docRef = doc(db, 'users', auth.currentUser.uid, 'profile', auth.currentUser.uid);
+            const res = await setDoc(docRef, filteredData, { merge: true });
             toast.success('Profile updated successfully');
             setProfile(data);
-            router.push('/admin/daashboard');
         } catch (error: any) {
             toast.error(error.message);
             setError(error.message);

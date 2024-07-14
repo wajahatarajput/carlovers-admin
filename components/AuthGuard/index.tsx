@@ -13,7 +13,6 @@ export const AuthGuard = ({ children, requiredAbility }: AuthGuardProps) => {
     const ability = useContext(AbilityContext);
     const router = useRouter();
 
-    console.log(requiredAbility)
     useEffect(() => {
         if (!loading) {
             if (!user) {

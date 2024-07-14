@@ -8,7 +8,7 @@ export const useFirebaseAuth = () => {
     const router = useRouter();
 
     const login = useCallback(async (email: string, password: string) => {
-        await signInWithEmailAndPassword(auth, email, password).then(() => {
+        await signInWithEmailAndPassword(auth, email, password).then((res) => {
 
         });
     }, []);
@@ -22,6 +22,7 @@ export const useFirebaseAuth = () => {
 
     const logout = useCallback(async () => {
         await auth.signOut();
+        localStorage.clear();
         router.push('/login');
     }, []);
 

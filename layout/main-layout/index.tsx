@@ -1,8 +1,9 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Head from 'next/head';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useFirebaseAuth } from '@/hooks';
+import { ROUTES } from '@/utils';
 
 export const Layout = ({ children }: any) => {
     const [open, setOpen] = useState(false);
@@ -10,6 +11,17 @@ export const Layout = ({ children }: any) => {
     const toggleSidebar = () => {
         setOpen(!open);
     };
+
+    const navItems = useMemo(() =>
+        ROUTES.map((route, index) => (
+            <li className="nav-item" key={index}>
+                <Link className="nav-link" href={route.path}>
+                    <i className={route.icon}></i>
+                    <span>{route.text}</span>
+                </Link>
+            </li>
+        )), []
+    );
 
     return (
         <div id="page-top">
@@ -28,9 +40,7 @@ export const Layout = ({ children }: any) => {
                         </a>
                         <hr className="sidebar-divider my-0" />
                         <ul className="navbar-nav text-light" id="accordionSidebar">
-                            <li className="nav-item"><Link className="nav-link" href="/admin/dashboard"><i className="fas fa-tachometer-alt"></i><span>Dashboard</span></Link></li>
-                            <li className="nav-item"><Link className="nav-link" href="subscription"><i className="far fa-user-dollar"></i><span>Subscriptions</span></Link></li>
-                            <li className="nav-item"><Link className="nav-link" href="services"><i className="fas fa-user-cog"></i><span>Services</span></Link></li>
+                            {navItems}
                         </ul>
                         <div className="text-center d-inline">
                             <button className="btn rounded-circle border-0" id="sidebarToggle" type="button" onClick={toggleSidebar}></button>

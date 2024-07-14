@@ -39,7 +39,6 @@ export default function ManageProfile() {
     const onSubmit: SubmitHandler<UserProfileInputs> = useCallback(async (data) => {
         try {
             await updateProfile(data);
-            // router.push('/profile');
         } catch (error) {
             console.error(error);
         }
@@ -135,7 +134,7 @@ export default function ManageProfile() {
                                     <div className="mb-3 form-group">
                                         <label className="form-label">Select Role</label>
                                         <div className="d-md-flex d-block justify-content-around">
-                                            
+
                                             <div className="form-check form-check-inline">
                                                 <input className="form-check-input" type="radio" id="owner" value="owner" {...register('role')} />
                                                 <label className="form-check-label text-center" htmlFor="owner">

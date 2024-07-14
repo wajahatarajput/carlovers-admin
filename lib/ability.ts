@@ -8,13 +8,17 @@ export interface User {
 export const defineAbilityFor = (user: User) => {
     const { can, cannot, build } = new AbilityBuilder(Ability);
 
+    console.log(user?.role)
     if (user?.role === 'admin') {
         can('manage', 'all');
-    } else if (user?.role === 'user') {
+    } else if (user?.role === 'owner') {
         can('read', 'all');
         can('read', 'dashboard');
         cannot('manage', 'admin');
-    } else {
+    } else if (user?.role === 'workshop') {
+        can('manage', 'workshop-dashboard');
+    }
+    else {
         can('read', 'public');
     }
 
