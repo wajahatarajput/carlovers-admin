@@ -11,11 +11,11 @@ export const defineAbilityFor = (user: User) => {
     if (user?.role === 'admin') {
         can('manage', 'all');
     } else if (user?.role === 'owner') {
-        can('read', 'all');
-        can('read', 'dashboard');
-        cannot('manage', 'admin');
+        can('manage', 'owner-dashboard');
     } else if (user?.role === 'workshop') {
         can('manage', 'workshop-dashboard');
+    } else if (user?.role === 'driver') {
+        can('manage', 'driver-dashboard');
     }
     else {
         can('read', 'public');

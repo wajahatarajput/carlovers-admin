@@ -58,6 +58,12 @@ switch (role) {
     case 'workshop':
         ROUTES = WORKSHOP_ROUTES;
         break;
+    case 'driver':
+        ROUTES = WORKSHOP_ROUTES;
+        break;
+    case 'owner':
+        ROUTES = WORKSHOP_ROUTES;
+        break;
     default:
         ROUTES = [];
 }
