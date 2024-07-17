@@ -21,7 +21,7 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
     const [profile, setProfile] = useState<UserProfileInputs | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const router = useRouter()
+    const router = useRouter();
 
     const fetchProfile = useCallback(async () => {
         if (!user) return;
@@ -67,8 +67,10 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
             const filteredData = cleanData(data);
             const docRef = doc(db, 'users', auth.currentUser.uid, 'profile', auth.currentUser.uid);
             const res = await setDoc(docRef, filteredData, { merge: true });
+            console.log('done')
             toast.success('Profile updated successfully');
             setProfile(data);
+            router.push('/login')
         } catch (error: any) {
             toast.error(error.message);
             setError(error.message);

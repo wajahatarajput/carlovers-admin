@@ -10,6 +10,7 @@ interface AuthContextType {
     login: (email: string, password: string) => Promise<void>;
     register: (email: string, password: string) => Promise<void>;
     logout: () => Promise<void>;
+    redirectRole: (role: string) => Promise<void>;
     loading: boolean;
 }
 
@@ -86,7 +87,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading, redirectRole }}>
             <AbilityContext.Provider value={ability}>
                 {children}
             </AbilityContext.Provider>

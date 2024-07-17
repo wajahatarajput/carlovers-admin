@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "@/styles/globals.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider, UserProfileProvider } from "@/providers";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";

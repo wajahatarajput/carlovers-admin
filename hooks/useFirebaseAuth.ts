@@ -3,13 +3,14 @@ import { useRouter } from 'next/router';
 import React, { useCallback } from 'react'
 import { auth } from '@/lib';
 import { toast } from 'react-toastify';
+import { useAuth, useUserProfile } from '@/providers';
 
 export const useFirebaseAuth = () => {
     const router = useRouter();
 
     const login = useCallback(async (email: string, password: string) => {
         await signInWithEmailAndPassword(auth, email, password).then((res) => {
-
+            router.reload();
         });
     }, []);
 
