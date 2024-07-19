@@ -1,11 +1,15 @@
+import { AuthGuard } from '@/components'
+import { Layout } from '@/layout'
 import React from 'react'
 
 const Verification = () => {
     return (
-        <div>
-            <h1>Verification</h1>
-        </div>
+        <AuthGuard requiredAbility={['manage', 'verification']}>
+            <Layout>
+                <h1>Verification</h1>
+            </Layout>
+        </AuthGuard>
     )
 }
 
-export default Verification
+export default Verification;

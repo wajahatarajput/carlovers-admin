@@ -14,6 +14,7 @@ export const defineAbilityFor = (user: User) => {
         can('manage', 'owner-dashboard');
     } else if (user?.role === 'workshop') {
         can('manage', 'workshop-dashboard');
+        can('manage', 'verification');
     } else if (user?.role === 'driver') {
         can('manage', 'driver-dashboard');
     }

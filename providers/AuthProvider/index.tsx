@@ -35,6 +35,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             if (profileData)
                 localStorage.setItem('role', profileData?.role)
             setAbility(defineAbilityFor({ role: profileData.role }));
+            console.log(profileData.role)
             redirectRole(profileData?.role);
         } else {
             setUser(null);
@@ -63,7 +64,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
                 targetPath = '/403';
         }
 
-        if (currentPath !== targetPath) {
+        if (currentPath !== targetPath && currentPath === '/login') {
             router.push(targetPath);
         }
     };
