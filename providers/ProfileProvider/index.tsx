@@ -13,9 +13,9 @@ export interface UserProfileContextProps {
     updateProfile: (data: UserProfileInputs) => Promise<void>;
 }
 
-const UserProfileContext = createContext<UserProfileContextProps | undefined>(undefined);
+const ProfileContext = createContext<UserProfileContextProps | undefined>(undefined);
 
-export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
+export const ProfileProvider = ({ children }: { children: ReactNode }) => {
     const { user = auth.currentUser } = useAuth();
 
     const [profile, setProfile] = useState<UserProfileInputs | null>(null);
@@ -86,14 +86,14 @@ export const UserProfileProvider = ({ children }: { children: ReactNode }) => {
     }, [user, fetchProfile]);
 
     return (
-        <UserProfileContext.Provider value={{ profile, loading, error, fetchProfile, updateProfile }}>
+        <ProfileContext.Provider value={{ profile, loading, error, fetchProfile, updateProfile }}>
             {children}
-        </UserProfileContext.Provider>
+        </ProfileContext.Provider>
     );
 };
 
-export const useUserProfile = (): UserProfileContextProps => {
-    const context = useContext(UserProfileContext);
+export const useProfile = (): UserProfileContextProps => {
+    const context = useContext(ProfileContext);
     if (!context) {
         throw new Error('useUserProfile must be used within a UserProfileProvider');
     }

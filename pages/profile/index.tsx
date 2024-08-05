@@ -1,7 +1,7 @@
 import { useCallback, useState, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/router';
-import { useAuth, useUserProfile } from '@/providers';
+import { useAuth, useProfile } from '@/providers';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserShield, faUserTie, faCar, faWrench } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,12 @@ export default function ManageProfile() {
     const router = useRouter();
     const { user } = useAuth();
     const [step, setStep] = useState(1);
-    const { profile, updateProfile } = useUserProfile();
+    const { profile, updateProfile } = useProfile();
+
+    const handleBack = () => {
+        router.back(); // Go back to the previous page
+    };
+
 
     useEffect(() => {
         if (profile) {
@@ -166,9 +171,12 @@ export default function ManageProfile() {
                             )}
                         </form>
                         <hr />
-                        <Link href='/admin/dashboard'>
-                            <button className="btn btn-outline-light border-0 mt-3 w-100">Back to Dashboard</button>
-                        </Link>
+                        <button
+                            onClick={handleBack}
+                            className="btn btn-outline-light border-0 mt-3 w-100"
+                        >
+                            Back
+                        </button>
                     </div>
                 </div>
             </div>

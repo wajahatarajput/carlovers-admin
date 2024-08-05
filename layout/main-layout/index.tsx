@@ -136,7 +136,7 @@ export const Layout = ({ children }: any) => {
                                                 <img className="border rounded-circle img-profile" src="/assets/img/avatars/avatar1.jpeg" />
                                             </a>
                                             <div className="dropdown-menu shadow dropdown-menu-end animated--grow-in">
-                                                <a className="dropdown-item" href="#"><i className="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a>
+                                                <Link className="dropdown-item" href="/profile"><i className="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</Link>
                                                 <a className="dropdown-item" href="#"><i className="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a>
                                                 <a className="dropdown-item" href="#"><i className="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
                                                 <div className="dropdown-divider"></div>
