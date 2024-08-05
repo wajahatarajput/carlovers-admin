@@ -20,7 +20,7 @@ const Page = () => {
                                     className="d-xl-flex justify-content-xl-center align-items-xl-center"
                                     style={{ margin: "0px" }}
                                 >
-                                    <Link href="/activerequests" passHref>
+                                    <Link href="/workshop/orders/active" passHref>
 
                                         <Cards
                                             count={getActiveOrders()?.length || 0}
@@ -28,7 +28,7 @@ const Page = () => {
                                             icon="fa fa-spinner fa-2x text-gray-300"
                                         />
                                     </Link>
-                                    <Link href="/completedrequests" passHref>
+                                    <Link href="/workshop/orders/complete" passHref>
 
                                         <Cards
                                             count={getCompletedOrders()?.length || 0}
@@ -36,7 +36,7 @@ const Page = () => {
                                             icon="fa fa-check fa-2x text-gray-300"
                                         />
                                     </Link>
-                                    <Link href="/paidrequests" passHref>
+                                    <Link href="/workshop/orders/paid" passHref>
 
                                         <Cards
                                             count={getPaidOrders()?.length || 0}
