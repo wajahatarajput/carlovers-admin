@@ -10,7 +10,7 @@ interface OrdersProviderProps {
   children: ReactNode;
 }
 
-const useOrdersProvider: React.FC<OrdersProviderProps> = ({ children }) => {
+export const OrdersProvider: React.FC<OrdersProviderProps> = ({ children }) => {
   const { user } = useAuth();
   const [orders, setOrders] = useState<any[]>([]);
   //  const { profile } = useUserProfile();
@@ -86,5 +86,4 @@ const useOrdersProvider: React.FC<OrdersProviderProps> = ({ children }) => {
   );
 };
 
-export default useOrdersProvider;
 export { useOrders };

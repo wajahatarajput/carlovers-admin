@@ -1,6 +1,6 @@
-import { createContext, ReactNode } from 'react';
+import { createContext } from 'react';
 
-interface OrdersContextType {
+interface OrdersContextType { // data type
   orders: any[];
   filterOrders?: (criteria: any) => any[];
   getOrders: (id: string) => Promise<void>;

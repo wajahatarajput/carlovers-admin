@@ -3,7 +3,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import "@/styles/globals.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { AuthProvider, UserProfileProvider } from "@/providers";
+import { AuthProvider, OrdersProvider, UserProfileProvider } from "@/providers";
 import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 
@@ -12,7 +12,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <Suspense fallback={'<h1> Loading</h1>'}>
       <AuthProvider>
         <UserProfileProvider>
-          <Component {...pageProps} />
+          <OrdersProvider>
+            <Component {...pageProps} />
+          </OrdersProvider>
         </UserProfileProvider>
       </AuthProvider>
       <ToastContainer />
