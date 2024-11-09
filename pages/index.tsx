@@ -3,6 +3,17 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import  LandingPageLayout  from "../layout/landingpagelayout/index";
+import HeroSection from "./home/components/HeroSection";
+import AboutSection from "./home/components/AboutSection"
+import ServicesSection from "./home/components/ServicesSection";
+import ProcessSection from "./home/components/ProcessSection";
+import TestimonySection from "./home/components/TestimonySection";
+import PricingSection from "./home/components/PricingSection";
+import FAQSection from "./home/components/FAQSection";
+import ContactSection from "./home/components/ContactSection";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,9 +21,9 @@ export default function Home() {
 
   const router = useRouter();
 
-  useEffect(() => {
-    router.push("/login");
-  }, []);
+  // useEffect(() => {
+  //   router.push("/login");
+  // }, []);
 
   return (
     <>
@@ -22,9 +33,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-
-      </main>
+      <LandingPageLayout>
+        <HeroSection />
+        <main id="main" className={`${styles.main} ${inter.className}`}>
+          <AboutSection />
+          <ServicesSection />
+          <ProcessSection />
+          <TestimonySection />
+          <PricingSection />
+          {/* ------------------------------------------------------------------- */}
+          {/* <GoogleAdSenseComponent/> */}
+          <FAQSection />
+          <ContactSection />
+        </main>
+      </LandingPageLayout>
     </>
   );
 }
