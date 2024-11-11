@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "@/styles/globals.css";
+import "@/styles/css/style.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthProvider, OrdersProvider, ProfileProvider } from "@/providers";

@@ -48,12 +48,12 @@ body,
   color: #a64bf4 !important;
 }
 
-.container {
+/* .container {
   height: 100vh;
   justify-content: center;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .row {
   height: -webkit-fill-available;

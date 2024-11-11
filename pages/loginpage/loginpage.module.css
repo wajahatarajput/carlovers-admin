@@ -1,0 +1,128 @@
+/* LoginPage.module.css */
+
+.loginPage {
+    background-color: #f0f0f5;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer {
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.formContainer {
+    padding: 10%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.glassContainer {
+    background: rgba(255, 255, 255, 0.2);
+    /* semi-transparent background */
+    backdrop-filter: blur(15px);
+    /* frosted-glass blur */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* frosted border */
+    width: 100%;
+    /* fill the form container */
+}
+
+
+.brandTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    border-bottom: 2px solid transparent;
+}
+
+.activeTab {
+    color: #6a1b9a;
+    border-bottom: 2px solid #6a1b9a;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.form-control {
+    border-radius: 25px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.forgotPassword {
+    color: #6a1b9a;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btnPrimary {
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.btnPrimary:hover {
+    background-color: #4a148c;
+}
+
+.divider {
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #666;
+}
+
+.socialIcons .icon {
+    font-size: 1.5rem;
+    color: #6a1b9a;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.socialIcons .icon:hover {
+    color: #4a148c;
+}
+
+.carImage {
+    background: url('./car-image.png') no-repeat center center;
+    background-size: contain;
+    position: relative;
+}

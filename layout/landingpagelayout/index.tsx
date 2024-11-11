@@ -6,7 +6,7 @@ interface LandingPageLayoutProps {
     children: ReactNode;
 }
 
-const LandingPageLayout: React.FC<LandingPageLayoutProps> = ({ children }) => {
+export const LandingPageLayout: React.FC<LandingPageLayoutProps> = ({ children }) => {
     return (
         <>
             <NavbarComp />
@@ -15,5 +15,3 @@ const LandingPageLayout: React.FC<LandingPageLayoutProps> = ({ children }) => {
         </>
     )
 }
-
-export default LandingPageLayout
