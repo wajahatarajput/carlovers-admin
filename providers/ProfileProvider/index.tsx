@@ -27,7 +27,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
         if (!user) return;
         setLoading(true);
         setError(null);
-        const docRef = doc(db, 'users', user.uid, 'profile', user.uid);
+        const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         try {
 
@@ -65,7 +65,7 @@ export const ProfileProvider = ({ children }: { children: ReactNode }) => {
                 data.profilePicture = profilePicUrl;
             }
             const filteredData = cleanData(data);
-            const docRef = doc(db, 'users', auth.currentUser.uid, 'profile', auth.currentUser.uid);
+            const docRef = doc(db, 'users', auth.currentUser.uid);
             const res = await setDoc(docRef, filteredData, { merge: true });
             console.log('done')
             toast.success('Profile updated successfully');

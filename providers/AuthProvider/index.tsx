@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     const [ability, setAbility] = useState(() => defineAbilityFor({ role: 'admin' }));
 
     const checkUserRole = async (user: any) => {
-        const docRef = doc(db, 'users', user.uid, 'profile', user.uid);
+        const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
             const profileData = docSnap.data();
